@@ -935,6 +935,39 @@
                 border-radius: 8px;
             }
         }
+
+        .price-note {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-top: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .pricing-card.featured .price-note {
+            color: #3498db;
+            font-weight: 500;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pricing-header .price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+            line-height: 1;
+        }
+
+        .pricing-header .price span {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--accent);
+        }
     </style>
 </head>
 <body>
@@ -1123,7 +1156,9 @@
                 <div class="pricing-header">
                     <h3>Weekly Plan</h3>
                     <div class="price">$99<span>/week</span></div>
-                    <p class="price-note">Price increases to $149/week on Monday, December 2</p>
+                    <p class="price-note">Early Bird Special - Limited Time Only!</p>
+                    <p class="price-note">Price increases to $149/week on December 2nd ($1,043 total)</p>
+                    <p class="price-note">Final increase to $199/week on December 17th ($1,393 total)</p>
                 </div>
                 <div class="pricing-features">
                     <h4>What's Included:</h4>
@@ -1142,19 +1177,27 @@
                 <div class="pricing-header">
                     <h3>Pay in Full</h3>
                     <div class="price">$693</div>
-                    <p class="price-note">Best value - Save by paying upfront</p>
+                    <p class="price-note">Best value - Save 50% compared to regular pricing</p>
+                    <p class="price-note">Limited time early bird offer</p>
                 </div>
                 <div class="pricing-features">
                     <h4>Everything in weekly plan, plus:</h4>
                     <ul>
-                        <li><i class="fas fa-check"></i> Save $000 compared to weekly payments</li>
+                        <li><i class="fas fa-check"></i> Save $700 compared to regular pricing</li>
                         <li><i class="fas fa-check"></i> Priority support</li>
                         <li><i class="fas fa-check"></i> Exclusive bonus content</li>
                         <li><i class="fas fa-check"></i> Early access to retreat booking</li>
+                        <li><i class="fas fa-check"></i> VIP access to all program materials</li>
                     </ul>
                 </div>
                 <button class="cta-button">Apply Now</button>
             </div>
+        </div>
+
+        <div class="pricing-note" style="text-align: center; margin-top: 2rem;">
+            <p style="font-size: 1.1rem; color: var(--accent); max-width: 800px; margin: 0 auto;">
+                Don't miss out on our early bird pricing! Lock in the lowest rate available and join us on this transformative journey. Prices will increase on December 2nd.
+            </p>
         </div>
     </div>
 </section>
