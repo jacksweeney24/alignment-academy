@@ -8,11 +8,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         :root {
-            --primary: #2A4365;
-            --secondary: #4299E1;
-            --accent: #48BB78;
-            --background: #F7FAFC;
-            --text: #2D3748;
+            --primary: #1a1a1a;
+            --secondary: #333333;
+            --accent: #666666;
+            --background: #ffffff;
+            --text: #2c2c2c;
+            --light-grey: #f5f5f5;
+            --border: #e0e0e0;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --max-width: 1200px;
         }
 
         body {
@@ -22,37 +28,61 @@
             background-color: var(--background);
             color: var(--text);
             line-height: 1.6;
+            font-size: 1.125rem;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(128, 90, 213, 0.1) 0%, transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(66, 153, 225, 0.1) 0%, transparent 40%);
         }
 
         .section {
-            padding: 120px 40px;
+            padding: var(--spacing-lg) var(--spacing-md);
             position: relative;
             overflow: hidden;
-            margin: 40px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section:nth-child(odd) {
+            background-color: var(--light-grey);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(147, 197, 253, 0.25) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(167, 243, 208, 0.2) 0%, transparent 60%);
         }
 
         .section:nth-child(even) {
             background-color: white;
+            background-image: 
+                radial-gradient(circle at 80% 20%, rgba(253, 164, 175, 0.2) 0%, transparent 60%),
+                radial-gradient(circle at 20% 80%, rgba(147, 197, 253, 0.25) 0%, transparent 60%);
         }
 
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            min-height: 90vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                         url('hero.jpg') center/cover no-repeat;
             color: white;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
             margin: 0;
+            padding: var(--spacing-lg) 0;
         }
 
-        .content {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 0 40px;
+        .hero .content {
+            max-width: 800px;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .pre-header {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: var(--spacing-sm);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .cta-button {
@@ -75,42 +105,80 @@
         /* Card Layout for Features */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin: 60px 0;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+            padding: 0 var(--spacing-sm);
         }
 
         .feature-card {
             background: white;
-            padding: 40px;
+            padding: var(--spacing-md);
             border-radius: 12px;
+            transition: all 0.3s ease;
+            text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            position: relative;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96C93D) border-box;
+            border: 3px solid transparent;
+            animation: borderGradient 8s linear infinite;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            animation: borderGradient 4s linear infinite;
+        }
+
+        .feature-card i {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            opacity: 0.9;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover i {
+            transform: scale(1.1);
+        }
+
+        .feature-card p {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text);
         }
 
         /* Typography */
+        h1, h2, h3 {
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+        }
+
         h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
+            font-size: 3rem;
+            font-weight: 700;
         }
 
         h2 {
             font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            font-weight: 500;
         }
 
         p {
-            font-size: 1.1rem;
-            color: #4A5568;
-            max-width: 800px;
-            margin: 0 auto 1.5rem;
+            font-size: 1.25rem;
+            color: var(--text);
+            margin-bottom: var(--spacing-md);
+            max-width: 65ch;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Testimonial Styling */
@@ -355,7 +423,7 @@
             }
 
             p {
-                font-size: 1rem;
+                font-size: 1.125rem;
             }
 
             .pre-header {
@@ -586,13 +654,286 @@
         }
 
         .facilitator-divider {
-            border: none; /* Remove default border */
-            border-top: 2px solid var(--primary); /* Add a top border with your primary color */
-            margin: 40px 0; /* Add some space around the divider */
+            border: none;
+            margin: 40px auto;
+            text-align: center;
+            height: auto;
+            line-height: 1;
+        }
+
+        .facilitator-divider::after {
+            content: "...";  /* Ampersand character */
+            font-size: 3rem;
+            color: var(--primary);
+            display: block;
         }
 
         .facilitator-content h3 {
             margin: 0; /* Remove margin to align with the image */
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --spacing-lg: 3rem;
+                --spacing-md: 1.5rem;
+                --spacing-sm: 0.75rem;
+            }
+
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+            
+            .facilitator {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .content {
+                padding: 0 var(--spacing-sm);
+            }
+        }
+
+        /* Add inside your existing <style> tag */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem auto;
+            max-width: 1200px;
+            padding: 0 1rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96C93D) border-box;
+            border: 3px solid transparent;
+            animation: borderGradient 8s linear infinite;
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border: 2px solid #3498db;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            animation: borderGradient 4s linear infinite;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pricing-header h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        .price span {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--accent);
+        }
+
+        .price-note {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-top: 0.5rem;
+        }
+
+        .pricing-features {
+            flex-grow: 1;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .pricing-features ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pricing-features li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            color: var(--text);
+        }
+
+        .pricing-features li i {
+            color: #2ecc71;
+            margin-right: 0.5rem;
+        }
+
+        .pricing-card .cta-button {
+            width: 100%;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .pricing-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Specific sections that should have white background */
+        #vision, #curriculum, #retreat {
+            background-color: white;
+        }
+
+        /* Specific sections that should have var(--background) color */
+        #facilitators, #pricing, #community {
+            background-color: var(--background);
+        }
+
+        /* Add these keyframes at the top of your style section */
+        @keyframes borderGradient {
+            0% {
+                border-image: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96C93D) 1;
+            }
+            50% {
+                border-image: linear-gradient(45deg, #96C93D, #FF6B6B, #4ECDC4, #45B7D1) 1;
+            }
+            100% {
+                border-image: linear-gradient(45deg, #45B7D1, #96C93D, #FF6B6B, #4ECDC4) 1;
+            }
+        }
+
+        /* Modify the feature-card class */
+        .feature-card {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96C93D) border-box;
+            border: 3px solid transparent;
+            animation: borderGradient 8s linear infinite;
+        }
+
+        /* Modify the pricing-card class */
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96C93D) border-box;
+            border: 3px solid transparent;
+            animation: borderGradient 8s linear infinite;
+        }
+
+        /* Add a hover effect to make it more interactive */
+        .feature-card:hover,
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            animation: borderGradient 4s linear infinite;
+        }
+
+        /* Add this to ensure the footer doesn't have a border */
+        footer.section {
+            border-bottom: none;
+        }
+
+        /* Add specific gradients for certain sections */
+        #vision {
+            background-image: 
+                radial-gradient(circle at 10% 30%, rgba(167, 243, 208, 0.25) 0%, transparent 70%),
+                radial-gradient(circle at 90% 70%, rgba(147, 197, 253, 0.2) 0%, transparent 70%);
+        }
+
+        #facilitators {
+            background-image: 
+                radial-gradient(circle at 70% 20%, rgba(253, 164, 175, 0.2) 0%, transparent 70%),
+                radial-gradient(circle at 30% 80%, rgba(167, 243, 208, 0.25) 0%, transparent 70%);
+        }
+
+        #curriculum {
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(147, 197, 253, 0.25) 0%, transparent 70%),
+                radial-gradient(circle at 80% 80%, rgba(253, 164, 175, 0.2) 0%, transparent 70%);
+        }
+
+        #pricing {
+            background-image: 
+                radial-gradient(circle at 90% 10%, rgba(167, 243, 208, 0.25) 0%, transparent 70%),
+                radial-gradient(circle at 10% 90%, rgba(147, 197, 253, 0.2) 0%, transparent 70%);
+        }
+
+        .retreat-image {
+            margin: 40px 0;
+            width: 100%;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .retreat-photo {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .retreat-photo:hover {
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 768px) {
+            .retreat-image {
+                margin: 30px 0;
+            }
+            
+            .retreat-photo {
+                border-radius: 8px;
+            }
         }
     </style>
 </head>
@@ -614,9 +955,9 @@
 <!-- Hero Section -->
 <section id="hero" class="hero">
     <div class="content">
-        <p class="pre-header">For high performers needing a change, introducing...</p>
-        <h2>Alignment Academy: A 7-week Program to Reset Your Mind, Body & Spirit
-            <span class="hosts">Hosted by Danny Miranda & Nick Sweeney</span>
+        <p class="pre-header">For those ready to level up…</p>
+        <h2>Alignment Academy: A 7-Week Program To Align Your Mind, Body & Spirit
+            <span class="hosts">With Danny Miranda & Nick Sweeney</span>
         </h2>
         <button class="cta-button">Join Now</button>
     </div>
@@ -626,19 +967,22 @@
 <section id="vision" class="section">
     <div class="content">
         <h2>What is Alignment Academy?</h2>
-        <p>In the modern world, we so often find ourselves disconnected, burnt out, and chasing an ideal version of ourselves we just can't catch. This 7-week program is designed to:</p>
+        <p>This 7-week program is designed to:</p>
         <div class="features-grid">
             <div class="feature-card">
+                <i class="fas fa-lungs fa-2x"></i>
                 <p>Rewire your physiology through breathwork</p>
             </div>
             <div class="feature-card">
+                <i class="fas fa-brain fa-2x"></i>
                 <p>Reset your mind with weekly group meditations</p>
             </div>
             <div class="feature-card">
+                <i class="fas fa-bolt fa-2x"></i>
                 <p>Boost your energy levels to give you greater creative capacity</p>
             </div>
         </div>
-        <p>We've poured our hearts and souls into this container, and we're so excited to co-create this experience with you⚡️❤️</p>
+        <p>We've poured our hearts and souls into this container, and we're so excited to co-create this experience with you⚡️🤍</p>
     </div>
 </section>
 
@@ -668,30 +1012,103 @@
     </div>
 </section>
 
+<!-- Curriculum Section -->
+<section id="curriculum" class="section">
+    <div class="content">
+        <h2>Your 7-Week Journey</h2>
+        <p>A carefully crafted curriculum designed to transform your mind, body, and spirit through progressive stages of growth.</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-seedling"></i>
+                <h3>Week 1: Foundations</h3>
+                <p>Build the cornerstone habits that will support your transformation. Learn essential breathwork techniques, meditation practices, and daily rituals that will set you up for success.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-compass"></i>
+                <h3>Week 2: Reason For Being</h3>
+                <p>Discover your reason for being. Through guided exercises and deep introspection, uncover what truly drives you and align your actions with your purpose.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Week 3: Breakthrough Sessions</h3>
+                <p>Experience powerful group coaching sessions designed to break through limiting beliefs and emotional blocks. Identify patterns that no longer serve you and create new empowering narratives.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-eye"></i>
+                <h3>Week 4: Vision</h3>
+                <p>Create a compelling vision for your future that excites and inspires you. Learn practical tools for goal setting and manifestation that align with your authentic self.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-fire"></i>
+                <h3>Week 5: Energy</h3>
+                <p>Master your physical and mental energy through advanced breathwork, movement practices, and energy management techniques. Learn to operate at your highest potential consistently.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-mountain"></i>
+                <h3>Week 6: Breakthrough Sessions Pt 2</h3>
+                <p>Build upon your previous breakthroughs with advanced coaching sessions. Cement your new identity and prepare for sustained transformation beyond the program.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-infinity"></i>
+                <h3>Week 7: Integration</h3>
+                <p>Learn to integrate all your learnings into daily life. Create sustainable systems and practices that will support your continued growth long after the program ends.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Community Section -->
+<section id="community" class="section">
+    <div class="content">
+        <h2>Your Support System</h2>
+        <p>Join a powerful community of like-minded individuals committed to growth and transformation.</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fab fa-whatsapp"></i>
+                <h3>Private WhatsApp Group</h3>
+                <p>Connect with your fellow students in a private, supportive environment. Share your journey, ask questions, and celebrate wins together in real-time.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-clock"></i>
+                <h3>24/7 Access to Facilitators</h3>
+                <p>Get direct support from Danny & Nick whenever you need it. Our facilitators are committed to your success and available to guide you through challenges.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-users"></i>
+                <h3>Daily Support & Accountability</h3>
+                <p>Share your daily intentions, habits, and manifestations with the group. Stay motivated with built-in accountability and support from your peers.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-video"></i>
+                <h3>Weekly Group Calls</h3>
+                <p>Dive deep with Danny & Nick in separate weekly group calls. Get personalized guidance, share insights, and learn from others' experiences in these powerful sessions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Retreat Section -->
 <section id="retreat" class="section">
     <div class="content">
         <h2>The Retreat</h2>
         <p>At the end of this immersive 7-week alignment experience, the group will journey to a beautiful beach retreat near Zihuatanejo, México, for a week-long post-program integration.</p>
         <p>The retreat is all-inclusive, with healthy vital foods and serene sleeping quarters all provided with love.</p>
-        <div class="features-grid">
-            <div class="feature-card">
-                <p>Surfing</p>
-            </div>
-            <div class="feature-card">
-                <p>Guided breathwork sessions</p>
-            </div>
-            <div class="feature-card">
-                <p>Group meditations</p>
-            </div>
-            <div class="feature-card">
-                <p>Group workouts</p>
-            </div>
-            <div class="feature-card">
-                <p>Time & space to integrate everything you've learned during the 7 week program</p>
-            </div>
+        <p class="highlight">The first people to join Alignment Academy will receive priority access and the best pricing for our February retreat. We only have space to host 14 of you, so make sure to join early!</p>
+
+        <div class="retreat-image">
+            <img src="casa1.avif" alt="Beautiful retreat location in Zihuatanejo" class="retreat-photo">
         </div>
-        <p class="highlight">We only have space to host 14 of you on the retreat, so make sure to join early!</p>
     </div>
 </section>
 
@@ -699,34 +1116,53 @@
 <section id="pricing" class="section">
     <div class="content">
         <h2>Secure Your Spot at Alignment Academy</h2>
-        <p><strong>Early Enrollment:</strong> $4500 (11/29-12/2)</p>
-        <p><strong>Standard Enrollment:</strong> $7000 (12/29-12/31)</p>
-        <button class="cta-button">Apply Today — Limited Spots Available</button>
+        <p>Choose the payment plan that works best for you</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Weekly Plan</h3>
+                    <div class="price">$99<span>/week</span></div>
+                    <p class="price-note">Price increases to $149/week on Monday, December 2</p>
+                </div>
+                <div class="pricing-features">
+                    <h4>What's Included:</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 7 weeks of guided alignment</li>
+                        <li><i class="fas fa-check"></i> Weekly group meditations</li>
+                        <li><i class="fas fa-check"></i> Breathwork sessions</li>
+                        <li><i class="fas fa-check"></i> Community support</li>
+                        <li><i class="fas fa-check"></i> Access to retreat (additional cost)</li>
+                    </ul>
+                </div>
+                <button class="cta-button">Apply Now</button>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="pricing-header">
+                    <h3>Pay in Full</h3>
+                    <div class="price">$693</div>
+                    <p class="price-note">Best value - Save by paying upfront</p>
+                </div>
+                <div class="pricing-features">
+                    <h4>Everything in weekly plan, plus:</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Save $000 compared to weekly payments</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> Exclusive bonus content</li>
+                        <li><i class="fas fa-check"></i> Early access to retreat booking</li>
+                    </ul>
+                </div>
+                <button class="cta-button">Apply Now</button>
+            </div>
+        </div>
     </div>
 </section>
-
-<!-- FAQ Section -->
-<section id="faq" class="section">
-    <div class="content">
-        <h2>Frequently Asked Questions</h2>
-        <p><strong>Q:</strong> What does the curriculum cover?</p>
-        <p><strong>A:</strong> The curriculum is designed around self-growth practices led by Nick and Danny, including meditation, breathwork, and transformative group calls.</p>
-        <p><strong>Q:</strong> What if I can’t attend the retreat?</p>
-        <p><strong>A:</strong> While the retreat offers a powerful immersive experience, it is optional, and participants can still complete the program.</p>
-    </div>
-</section>
-
-<!-- Final CTA -->
-<section class="section">
-    <div class="content">
-        <button class="cta-button">Join Alignment Academy</button>
-    </div>
-</section>
-
 <!-- Footer -->
 <footer class="section">
     <div class="content">
-        <p>Contact Information | Social Media Links</p>
+        <!-- Removed contact and social media links -->
+        <p>&copy; 2023 Alignment Academy. All rights reserved.</p>
     </div>
 </footer>
 
@@ -750,18 +1186,11 @@
     let lastScroll = 0;
     
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        // Scrolling down
-        if (currentScroll > lastScroll && currentScroll > 50) {
+        if (window.scrollY > 50) {
             navbar.classList.add('hidden');
-        } 
-        // Scrolling up
-        else {
+        } else {
             navbar.classList.remove('hidden');
         }
-        
-        lastScroll = currentScroll;
     });
 </script>
 
