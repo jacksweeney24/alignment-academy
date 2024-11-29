@@ -95,6 +95,9 @@
             cursor: pointer;
             transition: transform 0.3s ease, background-color 0.3s ease;
             margin: 40px 0;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
         }
 
         .cta-button:hover {
@@ -709,17 +712,22 @@
 
         .pricing-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+            background-image: linear-gradient(white, white), 
+                             linear-gradient(to right, #45B7D1, #96C93D);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
             position: relative;
-            background: linear-gradient(white, white) padding-box,
-                        linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96C93D) border-box;
-            border: 3px solid transparent;
-            animation: borderGradient 8s linear infinite;
+            min-height: 600px;
+            padding-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .pricing-card.featured {
@@ -767,7 +775,7 @@
         }
 
         .pricing-features {
-            flex-grow: 1;
+            flex: 1;
             margin-bottom: 2rem;
         }
 
@@ -795,11 +803,6 @@
             margin-right: 0.5rem;
         }
 
-        .pricing-card .cta-button {
-            width: 100%;
-            margin: 0;
-        }
-
         @media (max-width: 768px) {
             .pricing-grid {
                 grid-template-columns: 1fr;
@@ -811,7 +814,16 @@
             }
 
             .pricing-card {
+                min-height: 550px;
                 padding: 1.5rem;
+            }
+
+            .pricing-features {
+                margin-bottom: 60px;
+            }
+
+            .pricing-card .cta-button {
+                width: calc(100% - 3rem);
             }
         }
 
@@ -856,17 +868,22 @@
         /* Modify the pricing-card class */
         .pricing-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+            background-image: linear-gradient(white, white), 
+                             linear-gradient(to right, #45B7D1, #96C93D);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
             position: relative;
-            background: linear-gradient(white, white) padding-box,
-                        linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96C93D) border-box;
-            border: 3px solid transparent;
-            animation: borderGradient 8s linear infinite;
+            min-height: 600px;
+            padding-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         /* Add a hover effect to make it more interactive */
@@ -1007,10 +1024,11 @@
 <section id="hero" class="hero">
     <div class="content">
         <p class="pre-header">For those ready to level up…</p>
-        <h2>Alignment Academy: A 7-Week Program To Align Your Mind, Body & Spirit
+        <h2>Alignment Academy: 
+            <br>A 7-Week Program To Align Your Mind, Body & Spirit
             <span class="hosts">With Danny Miranda & Nick Sweeney</span>
         </h2>
-        <button class="cta-button">Join Now (Starting Jan 1)</button>
+        <a href="#pricing" class="cta-button">Join Now (Starting Jan 1)</a>
     </div>
 </section>
 
@@ -1185,30 +1203,29 @@
                         <li><i class="fas fa-check"></i> Weekly group meditations</li>
                         <li><i class="fas fa-check"></i> Breathwork sessions</li>
                         <li><i class="fas fa-check"></i> Community support</li>
-                        <li><i class="fas fa-check"></i> Access to retreat (additional cost)</li>
                     </ul>
                 </div>
-                <button class="cta-button">Apply Now</button>
+                <a href="https://buy.stripe.com/5kA03004o68jdEc8xC" class="cta-button">Apply Now</a>
             </div>
 
             <div class="pricing-card featured">
                 <div class="pricing-header">
                     <h3>Pay in Full</h3>
                     <div class="price">$693</div>
-                    <p class="price-note">Best value - Save 50% compared to regular pricing</p>
+                    <p class="price-note">Best value - Save 50% vs regular pricing</p>
                     <p class="price-note">Limited time early bird offer</p>
                 </div>
                 <div class="pricing-features">
                     <h4>Everything in weekly plan, plus:</h4>
                     <ul>
-                        <li><i class="fas fa-check"></i> Save $700 compared to regular pricing</li>
+                        <li><i class="fas fa-check"></i> Save $700 vs regular pricing</li>
                         <li><i class="fas fa-check"></i> Priority support</li>
                         <li><i class="fas fa-check"></i> Exclusive bonus content</li>
                         <li><i class="fas fa-check"></i> Early access to retreat booking</li>
-                        <li><i class="fas fa-check"></i> VIP access to all program materials</li>
+                        <li><i class="fas fa-check"></i> VIP access to program materials</li>
                     </ul>
                 </div>
-                <button class="cta-button">Apply Now</button>
+                <a href="https://buy.stripe.com/14k6rog3meEPcA88xD" class="cta-button">Apply Now</a>
             </div>
         </div>
 
