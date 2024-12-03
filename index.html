@@ -123,7 +123,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: relative;
             background: linear-gradient(white, white) padding-box,
-                        linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96C93D) border-box;
+                        linear-gradient(45deg, #3498db, #95a5a6) border-box;
             border: 3px solid transparent;
             animation: borderGradient 8s linear infinite;
         }
@@ -268,6 +268,17 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-image {
+            height: 2.5rem;
+            width: auto;
+        }
+
+        .logo span {
             color: white;
             font-size: 1.5rem;
             font-weight: 700;
@@ -324,15 +335,15 @@
         }
 
         .mind {
-            color: #4299E1;
+            color: #3498db;
         }
 
         .body {
-            color: #48BB78;
+            color: #95a5a6;
         }
 
         .spirit {
-            color: #ED8936;
+            color: #7f8c8d;
         }
 
         .mind, .body, .spirit {
@@ -716,7 +727,7 @@
             padding: 2rem;
             border: 2px solid transparent;
             background-image: linear-gradient(white, white), 
-                             linear-gradient(to right, #45B7D1, #96C93D);
+                             linear-gradient(to right, #3498db, #95a5a6);
             background-origin: border-box;
             background-clip: padding-box, border-box;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -840,13 +851,13 @@
         /* Add these keyframes at the top of your style section */
         @keyframes borderGradient {
             0% {
-                border-image: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96C93D) 1;
+                border-image: linear-gradient(45deg, #3498db, #95a5a6) 1;
             }
             50% {
-                border-image: linear-gradient(45deg, #96C93D, #FF6B6B, #4ECDC4, #45B7D1) 1;
+                border-image: linear-gradient(45deg, #95a5a6, #3498db) 1;
             }
             100% {
-                border-image: linear-gradient(45deg, #45B7D1, #96C93D, #FF6B6B, #4ECDC4) 1;
+                border-image: linear-gradient(45deg, #3498db, #95a5a6) 1;
             }
         }
 
@@ -860,7 +871,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: relative;
             background: linear-gradient(white, white) padding-box,
-                        linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96C93D) border-box;
+                        linear-gradient(45deg, #3498db, #95a5a6) border-box;
             border: 3px solid transparent;
             animation: borderGradient 8s linear infinite;
         }
@@ -872,7 +883,7 @@
             padding: 2rem;
             border: 2px solid transparent;
             background-image: linear-gradient(white, white), 
-                             linear-gradient(to right, #45B7D1, #96C93D);
+                             linear-gradient(to right, #3498db, #95a5a6);
             background-origin: border-box;
             background-clip: padding-box, border-box;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -902,26 +913,26 @@
         /* Add specific gradients for certain sections */
         #vision {
             background-image: 
-                radial-gradient(circle at 10% 30%, rgba(167, 243, 208, 0.25) 0%, transparent 70%),
-                radial-gradient(circle at 90% 70%, rgba(147, 197, 253, 0.2) 0%, transparent 70%);
+                radial-gradient(circle at 10% 30%, rgba(52, 152, 219, 0.15) 0%, transparent 70%),
+                radial-gradient(circle at 90% 70%, rgba(149, 165, 166, 0.1) 0%, transparent 70%);
         }
 
         #facilitators {
             background-image: 
-                radial-gradient(circle at 70% 20%, rgba(253, 164, 175, 0.2) 0%, transparent 70%),
-                radial-gradient(circle at 30% 80%, rgba(167, 243, 208, 0.25) 0%, transparent 70%);
+                radial-gradient(circle at 70% 20%, rgba(52, 152, 219, 0.15) 0%, transparent 70%),
+                radial-gradient(circle at 30% 80%, rgba(149, 165, 166, 0.1) 0%, transparent 70%);
         }
 
         #curriculum {
             background-image: 
-                radial-gradient(circle at 20% 20%, rgba(147, 197, 253, 0.25) 0%, transparent 70%),
-                radial-gradient(circle at 80% 80%, rgba(253, 164, 175, 0.2) 0%, transparent 70%);
+                radial-gradient(circle at 20% 20%, rgba(52, 152, 219, 0.15) 0%, transparent 70%),
+                radial-gradient(circle at 80% 80%, rgba(149, 165, 166, 0.1) 0%, transparent 70%);
         }
 
         #pricing {
             background-image: 
-                radial-gradient(circle at 90% 10%, rgba(167, 243, 208, 0.25) 0%, transparent 70%),
-                radial-gradient(circle at 10% 90%, rgba(147, 197, 253, 0.2) 0%, transparent 70%);
+                radial-gradient(circle at 90% 10%, rgba(52, 152, 219, 0.15) 0%, transparent 70%),
+                radial-gradient(circle at 10% 90%, rgba(149, 165, 166, 0.1) 0%, transparent 70%);
         }
 
         .retreat-image {
@@ -1009,7 +1020,9 @@
 
 <!-- Navigation -->
 <nav class="navbar">
-    <div class="logo">Alignment Academy</div>
+    <div class="logo">
+        <span>Alignment Academy</span>
+    </div>
     <button class="menu-toggle">☰</button>
     <div class="nav-links">
         <a href="#hero">Home</a>
